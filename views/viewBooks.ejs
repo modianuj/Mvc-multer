@@ -1,0 +1,22 @@
+<table border="1px">
+  <tr>
+    <td>Book Name</td>
+    <td>Author Name</td>
+    <td>Pages</td>
+    <td>Description</td>
+    <td>Cover Image</td>
+    <td>Actions</td>
+    <td>Actions</td>
+  </tr>
+  <% for (const book of singleBook) { %>
+  <tr>
+    <td><%= book.book_name %></td>
+    <td><%= book.author_name %></td>
+    <td><%= book.pages %></td>
+    <td><%= book.description %></td>
+    <td><img src="<%= book.book_image %>" alt="" height="100px" /></td>
+    <td><a href="/deletebook/?delete_id=<%=book.id%>">Delete</a></td>
+    <td><a href="/editBook/?update_id=<%=book.id%>">Update</a></td>
+  </tr>
+  <% } %>
+</table>

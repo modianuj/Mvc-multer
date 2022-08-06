@@ -1,0 +1,33 @@
+<h1>Welcome to Book Database</h1>
+
+<form action="/insertBook" method="post" enctype="multipart/form-data">
+  <label for=""> Book Name : <input type="text" name="book_name" /> </label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for=""> Author Name : <input type="text" name="author_name" /> </label>
+  <br />
+  <br />
+  <br />
+  <% pages = ["1-5",'6-10','11-30','40-100'] %>
+  <label for=""> 
+    Pages : <select name="pages">
+      <option value="">----select pages-----</option>
+      <% for(var i=0;i<pages.length;i++){ %>
+        <option value="<%= pages[i] %>"><%= pages[i] %></option>
+        <% } %>
+    </select>
+  </label>
+  <br />
+  <br />
+  <br />
+  <label for="">
+    Description : <textarea name="description" cols="30" rows="6"></textarea>
+  </label>
+  <br />
+  <br />
+  <br />
+  <label for=""> Book Image: <input type="file" name="book_image" /> </label>
+  <br /><br />
+  <button type="submit">submit</button>
+</form>
+
+<a href="/viewBook">Show BookSet</a>

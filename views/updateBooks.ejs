@@ -1,0 +1,53 @@
+<h1>update Book Database</h1>
+
+<form action="/updateBook" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="hidden_id" value="<%=updateRecord.id%>" />
+  <label for="">
+    Book Name :
+    <input type="text" name="book_name" value="<%=updateRecord.book_name%>" />
+  </label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="">
+    Author Name :
+    <input
+      type="text"
+      name="author_name"
+      value="<%=updateRecord.author_name%>"
+    />
+  </label>
+  <br />
+  <br />
+  <br />
+  <% pages = ["1-5",'6-10','11-30','40-100'] %>
+  <label for=""> 
+    Pages : <select name="pages">
+      <option value="">----select pages-----</option>
+      <% for(var i=0;i<pages.length;i++){ %>
+        <option value="<%= pages[i] %>" <% if (updateRecord.pages==pages[i]) {%>
+        <%= 'selected' %>  
+        <% } %> ><%= pages[i] %></option>
+        <% } %>
+    </select>
+  </label>
+  <br />
+  <br />
+  <br />
+  <label for="">
+    Description :
+    <textarea name="description" cols="30" rows="6">
+      <%= updateRecord.description%>
+    </textarea>
+  </label>
+  <br />
+  <br />
+  <br />
+  <label for="">
+    Book Image:
+    <input type="file" name="book_image" />
+    <img src="<%=updateRecord.book_image%>" alt="" height="100px" />
+  </label>
+  <br /><br />
+  <button type="submit">update</button>
+</form>
+
+<a href="/viewBook">Show BookSet</a>
